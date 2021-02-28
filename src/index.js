@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './components/styles/index.css';
-import Router from "./components/Router";
+import TaskList from "./components/TaskList";
+import store from "./store/index";
+import { Provider } from 'react-redux';
 
 ReactDOM.render(
-  <Router />,
+  <Provider store={store}>
+    <TaskList />
+  </Provider>,
   document.getElementById('root')
 );
 

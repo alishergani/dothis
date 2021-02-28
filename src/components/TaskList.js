@@ -1,13 +1,19 @@
 import './styles/TaskList.scss'
 import React, {useEffect, useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Task from "./Task";
 import firebase from "./../firebase";
 
 
 const TaskList = (props) => {
   const [todoList, setTodoList] = useState([]);
+  const dispatch = useDispatch()
+  const count = useSelector(state => state.count )
+
   
   useEffect(() => {
+    console.log(count);
+
     let todoRef = firebase.database().ref('todoList');
     todoRef.on('value', async (data) => {
       const todos = data.val();

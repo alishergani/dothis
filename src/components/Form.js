@@ -5,7 +5,7 @@ const Form = (props) => {
     const handleForm = () => {
         console.log('handleForm');
     }
-    if (!props.isShow) {
+    if (props.isShow) {
         return (
             <div className="Form">
                 <input type="text" name="namew" />
